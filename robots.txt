@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /tmp/
+
+Sitemap: https://turinguard.com/sitemap.xml
