@@ -8,13 +8,13 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="description" content="Turinguard helpt Nederlandse MKB-bedrijven met cybersecurity, security-scans, netwerkhardening, e-mailbeveiliging en praktisch IT-beheer. Start met een gratis intake.">
     <title>Turinguard</title>
-    <link rel="canonical" href="https://turinguard.com/">
+    <link rel="canonical" href="https://turinguard.nl/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/styling/styles.css">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Turinguard">
-    <meta property="og:url" content="https://turinguard.com/">
+    <meta property="og:url" content="https://turinguard.nl/">
     <meta property="og:title" content="Turinguard | Cybersecurity voor het MKB">
     <meta property="og:description" content="Turinguard helpt Nederlandse MKB-bedrijven met cybersecurity, security-scans, netwerkhardening, e-mailbeveiliging en praktisch IT-beheer.">
     <meta property="og:image" content="https://turinguard.nl/logo.png">
@@ -43,34 +43,7 @@
       }
     </script>
   </head>
-  <body>
-    <header class="site-header">
-      <div class="header-inner wrap">
-        <a class="brand" href="#home" aria-label="Turinguard, home">
-          <img src="assets/images/logo.png" alt="" width="36" height="32">
-          <span>TURINGUARD</span>
-        </a>
-        <details class="mobile-nav">
-          <summary aria-label="Navigatie openen"><span></span><span></span><span></span></summary>
-          <nav aria-label="Mobiele hoofdnavigatie">
-            <a href="index.html" aria-current="page">Home</a>
-            <a href="diensten.html">Diensten</a>
-            <a href="over-ons.html">Over ons</a>
-            <a href="contact.html">Contact</a>
-            <a class="button button-small" href="intake.html">Gratis intake</a>
-          </nav>
-        </details>
-        <nav class="desktop-nav" aria-label="Hoofdnavigatie">
-          <a href="index.html" aria-current="page">Home</a>
-          <a href="diensten.html">Diensten</a>
-          <a href="over-ons.html">Over ons</a>
-          <a href="contact.html">Contact</a>
-          <a class="button button-small" href="intake.html">Gratis intake</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
+  <?php $currentPage = 'home'; require __DIR__ . '/includes/header.php'; ?>
       <section class="hero grid-bg" id="home">
         <div class="wrap hero-content">
           <div class="hero-copy">
@@ -81,8 +54,8 @@
             <h1>Turinguard helpt je bedrijf veilig groeien.</h1>
             <p class="intro">Helder uitgelegd, vlot uitgevoerd. Zo houden we mkb-bedrijven digitaal veilig en georganiseerd met oplossingen waar je meteen wat aan hebt.</p>
             <div class="button-row">
-              <a class="button" href="intake.html">Plan een gratis intake <span aria-hidden="true">↗</span></a>
-              <a class="button button-outline" href="diensten.html">Bekijk onze diensten <span aria-hidden="true">↗</span></a>
+              <a class="button" href="intake.php">Plan een gratis intake <span aria-hidden="true">↗</span></a>
+              <a class="button button-outline" href="diensten.php">Bekijk onze diensten <span aria-hidden="true">↗</span></a>
             </div>
             <p class="eyebrow hero-points-title" id="hero-benefits-title">Voordelen van Turinguard</p>
             <ul class="hero-points" aria-labelledby="hero-benefits-title">
@@ -99,7 +72,7 @@
               <div class="team-person"><a href="https://www.linkedin.com/in/max-remmerswaal-26a378349/" target="_blank" rel="noopener noreferrer" aria-label="Max Remmerswaal on LinkedIn"><img class="team-photo" src="assets/images/foto-max.jpg" alt="Max Remmerswaal" width="38" height="38"></a><p><strong>Max</strong><span>Remmerswaal</span></p></div>
             </div>
             <p class="team-note">Eerst begrijpen wat er speelt. Dan samen kiezen wat echt nodig is.</p>
-            <a class="team-link" href="over-ons.html">Leer ons kennen <span aria-hidden="true">↗</span></a>
+            <a class="team-link" href="over-ons.php">Leer ons kennen <span aria-hidden="true">↗</span></a>
           </aside>
         </div>
       </section>
@@ -140,7 +113,7 @@
         </ol>
       </section>
 
-      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">liever direct even overleggen?</p><h2>Je krijgt ons zelf te spreken.</h2><p>Lees meer over Alberto en Max, neem contact op, of plan meteen een vrijblijvende intake.</p></div><a class="button" href="over-ons.html">Maak kennis <span aria-hidden="true">↗</span></a></div></section>
+      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">liever direct even overleggen?</p><h2>Je krijgt ons zelf te spreken.</h2><p>Lees meer over Alberto en Max, neem contact op, of plan meteen een vrijblijvende intake.</p></div><a class="button" href="over-ons.php">Maak kennis <span aria-hidden="true">↗</span></a></div></section>
 
       <section class="section wrap about-section" id="over-ons">
         <div class="about-copy">
@@ -157,16 +130,7 @@
         </div>
       </section>
 
-      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">eerste stap / gratis intake</p><h2>Waar kunnen we jou mee helpen?</h2><p>Plan een vrijblijvend gesprek van ongeveer een half uur. Je hoort binnen twee werkdagen van ons.</p></div><a class="button" href="intake.html">Plan de intake <span aria-hidden="true">↗</span></a></div></section>
+      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">eerste stap / gratis intake</p><h2>Waar kunnen we jou mee helpen?</h2><p>Plan een vrijblijvend gesprek van ongeveer een half uur. Je hoort binnen twee werkdagen van ons.</p></div><a class="button" href="intake.php">Plan de intake <span aria-hidden="true">↗</span></a></div></section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrap footer-grid">
-        <div><a class="brand" href="index.html"><img src="assets/images/logo.png" alt="" width="36" height="32" loading="lazy" decoding="async"><span>TURINGUARD</span></a><p class="footer-intro">Security-advies en praktisch beheer voor Nederlandse MKB-bedrijven.</p></div>
-        <div><p class="eyebrow">navigatie</p><ul class="footer-links"><li><a href="diensten.html">diensten</a></li><li><a href="over-ons.html">over-ons</a></li><li><a href="contact.html">contact</a></li><li><a href="intake.html">gratis-intake</a></li></ul></div>
-        <div><p class="eyebrow">contact</p><p class="footer-contact">Hofweg 1<br>3864 EH Nijkerkerveen<br><a href="mailto:info@turinguard.nl">info@turinguard.nl</a></p><p class="legal">KvK 42030744 · BTW NL005442861B03</p></div>
-      </div>
-      <div class="footer-bottom"><p class="wrap">© 2026 Turinguard · www.turinguard.nl</p></div>
-    </footer>
-  </body>
-</html>
+<?php require __DIR__ . '/includes/footer.php'; ?>

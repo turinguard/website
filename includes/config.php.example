@@ -1,0 +1,9 @@
+<?php
+return [
+    'smtp_host' => 'smtp.your-mail-provider.example',
+    'smtp_port' => 587,
+    'smtp_username' => 'your-smtp-username',
+    'smtp_password' => 'your-smtp-password',
+    'smtp_from' => 'website@your-domain.example',
+    'recipient' => 'you@your-domain.example',
+];

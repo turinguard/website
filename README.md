@@ -1,0 +1,47 @@
+# Turinguard website
+
+## Structuur
+
+De website draait als eenvoudige PHP-site zonder framework of Composer-package.
+
+- `index.php`, `diensten.php`, `over-ons.php`, `contact.php` en `intake.php` zijn de pagina's.
+- `includes/header.php` bevat de gedeelde header, het logo en de navigatie.
+- `includes/footer.php` bevat de gedeelde footer.
+- `includes/mailer.php` is een kleine SMTP-client met STARTTLS en SMTP AUTH.
+- `includes/config.php` bevat lokale SMTP-instellingen en staat in `.gitignore`.
+- `includes/config.php.example` is de veilige template om instellingen van de hosting over te nemen.
+
+Een logo- of navigatiewijziging hoeft daardoor nog maar op één plek in `includes/header.php` te gebeuren. Een wijziging in de footer gebeurt in `includes/footer.php`.
+
+## Installeren op de hosting
+
+1. Zorg dat PHP 8.0 of nieuwer beschikbaar is. De PHP-extensies `openssl`, `mbstring` en `session` zijn nodig.
+2. Maak op de hosting een `config.php` aan op een plek die niet publiek toegankelijk is. Stel daarna de environment variable `TURINGUARD_CONFIG` in op het absolute pad naar dat bestand. Als dat niet kan, kopieer `includes/config.php.example` naar `includes/config.php`; dat bestand staat in `.gitignore` en wordt door een correcte PHP-configuratie niet als broncode uitgeleverd.
+3. Vul de SMTP-host, poort, gebruikersnaam, wachtwoord, afzender en ontvanger van de mailprovider in. Gebruik de generieke voorbeeldwaarden nooit in productie.
+4. Upload de `.php`-bestanden, de map `includes`, `assets`, `sitemap.xml` en `robots.txt`.
+5. Open `intake.php` en test een formulierverzending. Controleer ook de spamfolder.
+
+Gebruik meestal poort `587` met STARTTLS. De exacte SMTP-host en logingegevens komen van de mailprovider of hostingpartij. Gebruik als afzender een adres op hetzelfde domein om SPF/DKIM/DMARC en aflevering niet onnodig te verstoren.
+
+## Lokaal testen
+
+Start in deze map een tijdelijke PHP-server:
+
+```sh
+php -S localhost:8000
+```
+
+Open daarna <http://localhost:8000/>. Een echte formulierverzending werkt alleen als `includes/config.php` geldige SMTP-gegevens bevat.
+
+## Belangrijke keuzes
+
+- PHP includes zijn gekozen omdat de hosting PHP ondersteunt en de site geen buildstap nodig heeft.
+- Er is geen framework of externe mailpackage toegevoegd. De SMTP-client gebruikt PHP's socket- en TLS-functionaliteit.
+- Het formulier gebruikt POST, server-side validatie, een CSRF-token en een verborgen honeypotveld.
+- SMTP-wachtwoorden worden niet in git opgeslagen; `includes/config.php` is genegeerd via `.gitignore`.
+- `config.php.example` bevat bewust geen echt domein, e-mailadres of providernaam. Concrete infrastructuurgegevens horen in de hostingconfiguratie, niet in een publieke repository.
+- De publieke URLs gebruiken nu `.php`. De sitemap en robots.txt gebruiken `https://turinguard.nl`.
+
+## Onderhoud
+
+Pas bij een nieuwe pagina de navigatie-links in `includes/header.php` en eventueel de footer-links in `includes/footer.php` aan. Voeg de publieke URL ook toe aan `sitemap.xml`.

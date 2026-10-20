@@ -27,6 +27,7 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+includes/config.php
 
 # vercel
 .vercel
@@ -39,3 +40,6 @@ next-env.d.ts
 .nuxt/
 .data/
 .output/
+
+# PHP
+includes/config.php
