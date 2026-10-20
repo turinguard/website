@@ -7,25 +7,25 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://turinguard.nl/diensten.php</loc>
+    <loc>https://turinguard.nl/diensten</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://turinguard.nl/over-ons.php</loc>
+    <loc>https://turinguard.nl/over-ons</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://turinguard.nl/contact.php</loc>
+    <loc>https://turinguard.nl/contact</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://turinguard.nl/intake.php</loc>
+    <loc>https://turinguard.nl/intake</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

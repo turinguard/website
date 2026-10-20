@@ -40,8 +40,10 @@ Open daarna <http://localhost:8000/>. Een echte formulierverzending werkt alleen
 - Het formulier gebruikt POST, server-side validatie, een CSRF-token en een verborgen honeypotveld.
 - SMTP-wachtwoorden worden niet in git opgeslagen; `includes/config.php` is genegeerd via `.gitignore`.
 - `config.php.example` bevat bewust geen echt domein, e-mailadres of providernaam. Concrete infrastructuurgegevens horen in de hostingconfiguratie, niet in een publieke repository.
-- De publieke URLs gebruiken nu `.php`. De sitemap en robots.txt gebruiken `https://turinguard.nl`.
+- De publieke URLs gebruiken extensieloze routes zoals `/diensten` en `/intake`; Apache herschrijft die intern naar PHP. Oude `.php`-URL's krijgen een 301-redirect.
 
 ## Onderhoud
 
-Pas bij een nieuwe pagina de navigatie-links in `includes/header.php` en eventueel de footer-links in `includes/footer.php` aan. Voeg de publieke URL ook toe aan `sitemap.xml`.
+Pas bij een nieuwe pagina de navigatie-links in `includes/header.php` en eventueel de footer-links in `includes/footer.php` aan. Voeg de extensieloze publieke URL ook toe aan `sitemap.xml`.
+
+De favicon-link gebruikt eerst `assets/images/logo.ico` en daarna het bestaande `assets/images/logo.png` als fallback. Plaats een geldig `logo.ico` in die map als je de ICO-versie wilt gebruiken; op dit moment bevat de repository alleen `logo.png`.

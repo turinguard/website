@@ -8,13 +8,15 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="description" content="Ontdek de cybersecuritydiensten van Turinguard voor het Nederlandse MKB: security-scans, netwerkhardening, implementatie, monitoring en e-mailbeveiliging.">
     <title>Turinguard</title>
-    <link rel="canonical" href="https://turinguard.nl/diensten.php">
+    <link rel="canonical" href="https://turinguard.nl/diensten">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/styling/styles.css">
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/logo.png" type="image/png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Turinguard">
-    <meta property="og:url" content="https://turinguard.nl/diensten.php">
+    <meta property="og:url" content="https://turinguard.nl/diensten">
     <meta property="og:title" content="Turinguard | Cybersecuritydiensten voor het MKB">
     <meta property="og:description" content="Security-scans, netwerkhardening, implementatie, monitoring en e-mailbeveiliging voor Nederlandse MKB-bedrijven.">
     <meta property="og:image" content="https://turinguard.nl/logo.png">
@@ -35,5 +37,5 @@
         <article class="service-detail"><div class="service-marker"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="8" y="7" width="32" height="34" rx="2"/><path d="M8 15h32M14 11h.1M18 11h.1M14 26h5l3-6 5 13 3-7h5"/></svg><span class="service-category">bijhouden</span></div><div><h2>Beheer &amp; monitoring</h2><p>Beveiliging vraagt aandacht nadat het werk klaar is. We kunnen updates, monitoring en support blijven verzorgen, op een schaal die past bij jouw organisatie.</p><ul><li>Monitoring van apparatuur en prestaties</li><li>Updates buiten kantooruren</li><li>Hulp bij storingen en wijzigingen</li></ul></div></article>
         <article class="service-detail"><div class="service-marker"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="6" y="9" width="36" height="29" rx="2"/><path d="M6 16h36M12 12.5h.1M16 12.5h.1M14 23h20v10H14zM14 24l10 7 10-7"/></svg><span class="service-category">online</span></div><div><h2>Website- en e-mailbeveiliging</h2><p>We kijken ook naar de diensten die vanaf het internet bereikbaar zijn en helpen om die basis op orde te brengen.</p><ul><li>Beveiligingsscan van je website</li><li>Hosting met beveiliging als uitgangspunt</li><li>E-mailinstellingen voor betere beveiliging</li></ul></div></article>
       </section>
-      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">eerst even kennismaken?</p><h2>Vertel ons waar je tegenaan loopt.</h2><p>Alberto of Max denkt met je mee over een logische eerste stap.</p></div><a class="button" href="intake.php">Plan een gratis intake <span aria-hidden="true">↗</span></a></div></section>
+      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">eerst even kennismaken?</p><h2>Vertel ons waar je tegenaan loopt.</h2><p>Alberto of Max denkt met je mee over een logische eerste stap.</p></div><a class="button" href="/intake">Plan een gratis intake <span aria-hidden="true">↗</span></a></div></section>
 <?php require __DIR__ . '/includes/footer.php'; ?>

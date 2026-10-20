@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/styling/styles.css">
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/logo.png" type="image/png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Turinguard">
     <meta property="og:url" content="https://turinguard.nl/">
@@ -54,8 +56,8 @@
             <h1>Turinguard helpt je bedrijf veilig groeien.</h1>
             <p class="intro">Helder uitgelegd, vlot uitgevoerd. Zo houden we mkb-bedrijven digitaal veilig en georganiseerd met oplossingen waar je meteen wat aan hebt.</p>
             <div class="button-row">
-              <a class="button" href="intake.php">Plan een gratis intake <span aria-hidden="true">↗</span></a>
-              <a class="button button-outline" href="diensten.php">Bekijk onze diensten <span aria-hidden="true">↗</span></a>
+              <a class="button" href="/intake">Plan een gratis intake <span aria-hidden="true">↗</span></a>
+              <a class="button button-outline" href="/diensten">Bekijk onze diensten <span aria-hidden="true">↗</span></a>
             </div>
             <p class="eyebrow hero-points-title" id="hero-benefits-title">Voordelen van Turinguard</p>
             <ul class="hero-points" aria-labelledby="hero-benefits-title">
@@ -72,7 +74,7 @@
               <div class="team-person"><a href="https://www.linkedin.com/in/max-remmerswaal-26a378349/" target="_blank" rel="noopener noreferrer" aria-label="Max Remmerswaal on LinkedIn"><img class="team-photo" src="assets/images/foto-max.jpg" alt="Max Remmerswaal" width="38" height="38"></a><p><strong>Max</strong><span>Remmerswaal</span></p></div>
             </div>
             <p class="team-note">Eerst begrijpen wat er speelt. Dan samen kiezen wat echt nodig is.</p>
-            <a class="team-link" href="over-ons.php">Leer ons kennen <span aria-hidden="true">↗</span></a>
+            <a class="team-link" href="/over-ons">Leer ons kennen <span aria-hidden="true">↗</span></a>
           </aside>
         </div>
       </section>
@@ -113,7 +115,7 @@
         </ol>
       </section>
 
-      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">liever direct even overleggen?</p><h2>Je krijgt ons zelf te spreken.</h2><p>Lees meer over Alberto en Max, neem contact op, of plan meteen een vrijblijvende intake.</p></div><a class="button" href="over-ons.php">Maak kennis <span aria-hidden="true">↗</span></a></div></section>
+      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">liever direct even overleggen?</p><h2>Je krijgt ons zelf te spreken.</h2><p>Lees meer over Alberto en Max, neem contact op, of plan meteen een vrijblijvende intake.</p></div><a class="button" href="/over-ons">Maak kennis <span aria-hidden="true">↗</span></a></div></section>
 
       <section class="section wrap about-section" id="over-ons">
         <div class="about-copy">
@@ -130,7 +132,7 @@
         </div>
       </section>
 
-      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">eerste stap / gratis intake</p><h2>Waar kunnen we jou mee helpen?</h2><p>Plan een vrijblijvend gesprek van ongeveer een half uur. Je hoort binnen twee werkdagen van ons.</p></div><a class="button" href="intake.php">Plan de intake <span aria-hidden="true">↗</span></a></div></section>
+      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">eerste stap / gratis intake</p><h2>Waar kunnen we jou mee helpen?</h2><p>Plan een vrijblijvend gesprek van ongeveer een half uur. Je hoort binnen twee werkdagen van ons.</p></div><a class="button" href="/intake">Plan de intake <span aria-hidden="true">↗</span></a></div></section>
     </main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

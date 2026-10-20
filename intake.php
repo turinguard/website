@@ -51,13 +51,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="description" content="Plan een gratis intake bij Turinguard voor cybersecurity, een security-scan, netwerkhardening of e-mailbeveiliging voor jouw MKB-bedrijf.">
     <title>Turinguard | Gratis cybersecurity intake</title>
-    <link rel="canonical" href="https://turinguard.nl/intake.php">
+    <link rel="canonical" href="https://turinguard.nl/intake">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/styling/styles.css">
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/logo.png" type="image/png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Turinguard">
-    <meta property="og:url" content="https://turinguard.nl/intake.php">
+    <meta property="og:url" content="https://turinguard.nl/intake">
     <meta property="og:title" content="Turinguard | Gratis cybersecurity intake">
     <meta property="og:description" content="Plan een gratis intake bij Turinguard voor cybersecurity, een security-scan, netwerkhardening of e-mailbeveiliging voor jouw MKB-bedrijf.">
     <meta property="og:image" content="https://turinguard.nl/logo.png">
@@ -76,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="intake-context"><p class="eyebrow">wat je kunt verwachten</p><ul class="contact-points"><li><span aria-hidden="true">→</span> Je spreekt rechtstreeks met Alberto of Max</li><li><span aria-hidden="true">→</span> We reageren binnen twee werkdagen</li><li><span aria-hidden="true">→</span> Je zit nergens aan vast</li></ul><p>Heb je liever direct contact? Mail ons via <a href="mailto:info@turinguard.nl">info@turinguard.nl</a>.</p></div>
         <?php if ($formSent): ?><p class="form-success" role="status">Bedankt. Je aanvraag is verzonden; we nemen binnen twee werkdagen contact met je op.</p><?php endif; ?>
         <?php if ($formError !== ''): ?><p class="form-error" role="alert"><?= htmlspecialchars($formError, ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?>
-        <form class="intake-form" action="intake.php" method="post">
+        <form class="intake-form" action="/intake" method="post">
           <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
           <label class="form-trap" aria-hidden="true">Website<input tabindex="-1" autocomplete="off" name="website"></label>
           <div class="form-grid">

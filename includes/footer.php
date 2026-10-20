@@ -1,7 +1,7 @@
   </main>
   <footer class="site-footer">
     <div class="wrap footer-grid">
-        <div><a class="brand" href="index.php">
+        <div><a class="brand" href="/">
             <img src="assets/images/logo.png" alt="" width="36" height="32" loading="lazy" decoding="async">
             <span>TURINGUARD</span>
         </a>
@@ -9,10 +9,10 @@
         </div>
         <div><p class="eyebrow">navigatie</p>
         <ul class="footer-links">
-            <li><a href="diensten.php">diensten</a></li>
-            <li><a href="over-ons.php">over-ons</a></li>
-            <li><a href="contact.php">contact</a></li>
-            <li><a href="intake.php">gratis-intake</a></li>
+            <li><a href="/diensten">diensten</a></li>
+            <li><a href="/over-ons">over-ons</a></li>
+            <li><a href="/contact">contact</a></li>
+            <li><a href="/intake">gratis-intake</a></li>
         </ul>
         </div>
         <div><p class="eyebrow">contact</p>

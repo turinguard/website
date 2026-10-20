@@ -8,13 +8,15 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="description" content="Leer Alberto en Max van Turinguard kennen: persoonlijke cybersecurity en praktisch netwerkadvies voor Nederlandse MKB-bedrijven.">
     <title>Turinguard</title>
-    <link rel="canonical" href="https://turinguard.nl/over-ons.php">
+    <link rel="canonical" href="https://turinguard.nl/over-ons">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/styling/styles.css">
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/logo.png" type="image/png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Turinguard">
-    <meta property="og:url" content="https://turinguard.nl/over-ons.php">
+    <meta property="og:url" content="https://turinguard.nl/over-ons">
     <meta property="og:title" content="Turinguard | Persoonlijk cybersecurityadvies voor MKB">
     <meta property="og:description" content="Leer Alberto en Max van Turinguard kennen: persoonlijke cybersecurity en praktisch netwerkadvies voor Nederlandse MKB-bedrijven.">
     <meta property="og:image" content="https://turinguard.nl/logo.png">
@@ -55,5 +57,5 @@
         </ol>
         <aside class="story-aside"><h3 class="story-aside-title">Voor wie we er zijn</h3><ul class="story-fit-copy"><li>Je hebt een klein of middelgroot bedrijf en wilt grip op je IT, maar geen eigen securityafdeling opbouwen.</li><li>Je wilt weten wat echt risico is, in gewone taal en met ruimte om zelf keuzes te maken.</li><li>En als er werk nodig is, wil je iemand die het netwerk begrijpt én de verandering netjes kan uitvoeren.</li></ul></aside>
       </section>
-      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">even kennismaken</p><h2>Een eerste gesprek is vrijblijvend.</h2><p>Vertel wat er speelt. Dan kijken we samen of we iets voor je kunnen betekenen.</p></div><a class="button" href="intake.php">Plan een gratis intake <span aria-hidden="true">↗</span></a></div></section>
+      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">even kennismaken</p><h2>Een eerste gesprek is vrijblijvend.</h2><p>Vertel wat er speelt. Dan kijken we samen of we iets voor je kunnen betekenen.</p></div><a class="button" href="/intake">Plan een gratis intake <span aria-hidden="true">↗</span></a></div></section>
 <?php require __DIR__ . '/includes/footer.php'; ?>

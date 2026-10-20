@@ -11,13 +11,15 @@ $currentPage = 'contact';
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="description" content="Neem contact op met Turinguard voor cybersecurityadvies, security-scans, netwerkbeveiliging en praktisch IT-beheer voor jouw MKB-bedrijf.">
     <title>Turinguard | Contact</title>
-    <link rel="canonical" href="https://turinguard.nl/contact.php">
+    <link rel="canonical" href="https://turinguard.nl/contact">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/styling/styles.css">
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/logo.png" type="image/png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Turinguard">
-    <meta property="og:url" content="https://turinguard.nl/contact.php">
+    <meta property="og:url" content="https://turinguard.nl/contact">
     <meta property="og:title" content="Turinguard | Contact voor cybersecurityadvies">
     <meta property="og:description" content="Neem contact op met Turinguard voor cybersecurityadvies, security-scans, netwerkbeveiliging en praktisch IT-beheer voor jouw MKB-bedrijf.">
     <meta property="og:image" content="https://turinguard.nl/logo.png">
@@ -48,5 +50,5 @@ $currentPage = 'contact';
           <a class="contact-email" href="mailto:alberto@turinguard.nl">alberto@turinguard.nl <span aria-hidden="true">↗</span></a>
         </article>
       </section>
-      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">gratis en vrijblijvend</p><h2>Plan een eerste gesprek van ongeveer 30 minuten.</h2><p>Je krijgt een eerste beeld van de risico’s en wat een logische vervolgstap kan zijn.</p></div><a class="button" href="intake.php">Plan de intake <span aria-hidden="true">↗</span></a></div></section>
+      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">gratis en vrijblijvend</p><h2>Plan een eerste gesprek van ongeveer 30 minuten.</h2><p>Je krijgt een eerste beeld van de risico’s en wat een logische vervolgstap kan zijn.</p></div><a class="button" href="/intake">Plan de intake <span aria-hidden="true">↗</span></a></div></section>
 <?php require __DIR__ . '/includes/footer.php'; ?>

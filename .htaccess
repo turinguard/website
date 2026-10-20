@@ -1,0 +1,16 @@
+Options -MultiViews
+RewriteEngine On
+
+RewriteCond %{THE_REQUEST} \s/+index\.php(?:[?\s]) [NC]
+RewriteRule ^index\.php$ / [R=301,L,NE]
+
+# Gebruik de nette URL als canonical URL wanneer iemand nog direct naar .php gaat.
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php(?:[?\s]) [NC]
+RewriteRule ^(.+)\.php$ /$1 [R=301,L,NE]
+
+# Laat nette URL's intern doorlopen naar de bestaande PHP-pagina's.
+RewriteRule ^$ index.php [END]
+RewriteRule ^diensten/?$ diensten.php [END]
+RewriteRule ^over-ons/?$ over-ons.php [END]
+RewriteRule ^contact/?$ contact.php [END]
+RewriteRule ^intake/?$ intake.php [END]
