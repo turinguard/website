@@ -17,6 +17,7 @@ Header always set Content-Security-Policy "default-src 'self'; base-uri 'none'; 
 RedirectMatch 404 ^/(?:\.git|includes/config\.php|includes/config\.php\.example)(?:/|$)
 
 RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 RewriteCond %{THE_REQUEST} \s/+index\.php(?:[?\s]) [NC]
