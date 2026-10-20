@@ -8,13 +8,15 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="description" content="Ontdek de cybersecuritydiensten van Turinguard voor het Nederlandse MKB: security-scans, netwerkhardening, implementatie, monitoring en e-mailbeveiliging.">
     <title>Turinguard</title>
-    <link rel="canonical" href="https://turinguard.nl/diensten.html">
+    <link rel="canonical" href="https://turinguard.nl/diensten">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/styling/styles.css">
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/logo.png" type="image/png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Turinguard">
-    <meta property="og:url" content="https://turinguard.nl/diensten.html">
+    <meta property="og:url" content="https://turinguard.nl/diensten">
     <meta property="og:title" content="Turinguard | Cybersecuritydiensten voor het MKB">
     <meta property="og:description" content="Security-scans, netwerkhardening, implementatie, monitoring en e-mailbeveiliging voor Nederlandse MKB-bedrijven.">
     <meta property="og:image" content="https://turinguard.nl/logo.png">
@@ -23,13 +25,7 @@
     <meta name="twitter:description" content="Security-scans, netwerkhardening, implementatie, monitoring en e-mailbeveiliging voor Nederlandse MKB-bedrijven.">
     <meta name="twitter:image" content="https://turinguard.nl/logo.png">
   </head>
-  <body>
-    <header class="site-header"><div class="header-inner wrap">
-      <a class="brand" href="index.html" aria-label="Turinguard, home"><img src="assets/images/logo.png" alt="" width="36" height="32"><span>TURINGUARD</span></a>
-      <details class="mobile-nav"><summary aria-label="Navigatie openen"><span></span><span></span><span></span></summary><nav aria-label="Mobiele hoofdnavigatie"><a href="index.html">Home</a><a href="diensten.html" aria-current="page">Diensten</a><a href="over-ons.html">Over ons</a><a href="contact.html">Contact</a><a class="button button-small" href="intake.html">Gratis intake</a></nav></details>
-      <nav class="desktop-nav" aria-label="Hoofdnavigatie"><a href="index.html">Home</a><a href="diensten.html" aria-current="page">Diensten</a><a href="over-ons.html">Over ons</a><a href="contact.html">Contact</a><a class="button button-small" href="intake.html">Gratis intake</a></nav>
-    </div></header>
-    <main>
+  <?php $currentPage = 'diensten'; require __DIR__ . '/includes/header.php'; ?>
       <section class="page-heading"><div class="wrap">
         <p class="eyebrow">diensten / van inzicht naar uitvoering</p>
         <h1>We zoeken uit wat nodig is. En helpen het daarna goed regelen.</h1>
@@ -41,8 +37,5 @@
         <article class="service-detail"><div class="service-marker"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="8" y="7" width="32" height="34" rx="2"/><path d="M8 15h32M14 11h.1M18 11h.1M14 26h5l3-6 5 13 3-7h5"/></svg><span class="service-category">bijhouden</span></div><div><h2>Beheer &amp; monitoring</h2><p>Beveiliging vraagt aandacht nadat het werk klaar is. We kunnen updates, monitoring en support blijven verzorgen, op een schaal die past bij jouw organisatie.</p><ul><li>Monitoring van apparatuur en prestaties</li><li>Updates buiten kantooruren</li><li>Hulp bij storingen en wijzigingen</li></ul></div></article>
         <article class="service-detail"><div class="service-marker"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="6" y="9" width="36" height="29" rx="2"/><path d="M6 16h36M12 12.5h.1M16 12.5h.1M14 23h20v10H14zM14 24l10 7 10-7"/></svg><span class="service-category">online</span></div><div><h2>Website- en e-mailbeveiliging</h2><p>We kijken ook naar de diensten die vanaf het internet bereikbaar zijn en helpen om die basis op orde te brengen.</p><ul><li>Beveiligingsscan van je website</li><li>Hosting met beveiliging als uitgangspunt</li><li>E-mailinstellingen voor betere beveiliging</li></ul></div></article>
       </section>
-      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">eerst even kennismaken?</p><h2>Vertel ons waar je tegenaan loopt.</h2><p>Alberto of Max denkt met je mee over een logische eerste stap.</p></div><a class="button" href="intake.html">Plan een gratis intake <span aria-hidden="true">↗</span></a></div></section>
-    </main>
-    <footer class="site-footer"><div class="wrap footer-grid"><div><a class="brand" href="index.html"><img src="assets/images/logo.png" alt="" width="36" height="32" loading="lazy" decoding="async"><span>TURINGUARD</span></a><p class="footer-intro">Security-advies en praktisch beheer voor Nederlandse MKB-bedrijven.</p></div><div><p class="eyebrow">navigatie</p><ul class="footer-links"><li><a href="diensten.html">diensten</a></li><li><a href="over-ons.html">over-ons</a></li><li><a href="contact.html">contact</a></li><li><a href="intake.html">gratis-intake</a></li></ul></div><div><p class="eyebrow">contact</p><p class="footer-contact">Hofweg 1<br>3864 EH Nijkerkerveen<br><a href="mailto:info@turinguard.nl">info@turinguard.nl</a></p><p class="legal">KvK 42030744 · BTW NL005442861B03</p></div></div><div class="footer-bottom"><p class="wrap">© 2026 Turinguard · www.turinguard.nl</p></div></footer>
-  </body>
-</html>
+      <section class="page-cta"><div class="wrap cta-inner"><div><p class="eyebrow">eerst even kennismaken?</p><h2>Vertel ons waar je tegenaan loopt.</h2><p>Alberto of Max denkt met je mee over een logische eerste stap.</p></div><a class="button" href="/intake">Plan een gratis intake <span aria-hidden="true">↗</span></a></div></section>
+<?php require __DIR__ . '/includes/footer.php'; ?>

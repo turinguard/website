@@ -1,0 +1,4 @@
+Contact: mailto:reports@turinguard.nl
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: nl, en
+Canonical: https://turinguard.nl/.well-known/security.txt

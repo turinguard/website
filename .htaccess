@@ -1,0 +1,31 @@
+Options -Indexes -MultiViews
+RewriteEngine On
+LimitRequestBody 65536
+
+# Security headers. HSTS is safe here because the site is intended to run on HTTPS.
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "DENY"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+Header always set Content-Security-Policy "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: https://turinguard.nl https://www.linkedin.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; manifest-src 'self'"
+
+# Never serve deployment configuration, repository metadata, or source maps.
+<FilesMatch "^(\.env|\.git|\.gitignore|.*\.bak|.*\.conf|.*\.ini|.*\.log|README.*|config\.php|config\.php\.example)$">
+	Require all denied
+</FilesMatch>
+RedirectMatch 404 ^/(?:\.git|includes/config\.php|includes/config\.php\.example)(?:/|$)
+
+RewriteCond %{THE_REQUEST} \s/+index\.php(?:[?\s]) [NC]
+RewriteRule ^index\.php$ / [R=301,L,NE]
+
+# Gebruik de nette URL als canonical URL wanneer iemand nog direct naar .php gaat.
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php(?:[?\s]) [NC]
+RewriteRule ^(.+)\.php$ /$1 [R=301,L,NE]
+
+# Laat nette URL's intern doorlopen naar de bestaande PHP-pagina's.
+RewriteRule ^$ index.php [END]
+RewriteRule ^diensten/?$ diensten.php [END]
+RewriteRule ^over-ons/?$ over-ons.php [END]
+RewriteRule ^contact/?$ contact.php [END]
+RewriteRule ^intake/?$ intake.php [END]

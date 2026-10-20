@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /tmp/
 
-Sitemap: https://turinguard.com/sitemap.xml
+Sitemap: https://turinguard.nl/sitemap.xml
