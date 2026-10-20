@@ -1,7 +1,18 @@
 <?php
 declare(strict_types=1);
+session_set_cookie_params([
+  'httponly' => true,
+  'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+  'samesite' => 'Lax',
+]);
 session_start();
 require __DIR__ . '/includes/mailer.php';
+
+function intake_post_string(string $key): string
+{
+  $value = $_POST[$key] ?? '';
+  return is_string($value) ? trim($value) : '';
+}
 
 $formError = '';
 $formSent = false;
@@ -9,19 +20,41 @@ if (empty($_SESSION['csrf_token'])) {
   $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $postedToken = (string) ($_POST['csrf_token'] ?? '');
-  $name = trim((string) ($_POST['name'] ?? ''));
-  $company = trim((string) ($_POST['company'] ?? ''));
-  $email = trim((string) ($_POST['email'] ?? ''));
-  $topic = trim((string) ($_POST['topic'] ?? ''));
-  $details = trim((string) ($_POST['details'] ?? ''));
+if (!in_array($_SERVER['REQUEST_METHOD'], ['GET', 'POST'], true)) {
+  http_response_code(405);
+  header('Allow: GET, POST');
+  exit('Method Not Allowed');
+}
 
-  if (!hash_equals($_SESSION['csrf_token'], $postedToken)) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $allowedTopics = [
+    'Gratis intake / security-scan',
+    'Adviesrapport',
+    'Hardening & implementatie',
+    'Beheer & monitoring',
+    'Website- en e-mailbeveiliging',
+  ];
+  $postedToken = intake_post_string('csrf_token');
+  $name = intake_post_string('name');
+  $company = intake_post_string('company');
+  $email = intake_post_string('email');
+  $topic = intake_post_string('topic');
+  $details = intake_post_string('details');
+
+  $submissionTimes = array_filter(
+    $_SESSION['intake_submissions'] ?? [],
+    static fn (mixed $timestamp): bool => is_int($timestamp) && $timestamp > time() - 600
+  );
+
+  if (count($submissionTimes) >= 3) {
+    $formError = 'Je hebt kort achter elkaar meerdere aanvragen verstuurd. Probeer het later opnieuw.';
+  } elseif (!hash_equals($_SESSION['csrf_token'], $postedToken)) {
     $formError = 'Je formulier kon niet worden gecontroleerd. Probeer het opnieuw.';
   } elseif (!empty($_POST['website'] ?? '')) {
     $formError = 'Je formulier kon niet worden verzonden.';
-  } elseif ($name === '' || $company === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  } elseif (strlen($name) > 120 || strlen($company) > 160 || strlen($email) > 254 || strlen($topic) > 80 || strlen($details) > 5000) {
+    $formError = 'Een of meer velden zijn te lang ingevuld.';
+  } elseif ($name === '' || $company === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || !in_array($topic, $allowedTopics, true)) {
     $formError = 'Vul je naam, bedrijf en een geldig e-mailadres in.';
   } else {
     try {
@@ -33,9 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $body = "Naam: $name\nBedrijf: $company\nE-mail: $email\nOnderwerp: $topic\n\nToelichting:\n$details";
       smtp_send($config, $email, 'Nieuw intakeverzoek via turinguard.nl', $body);
       $formSent = true;
+      $_SESSION['intake_submissions'] = [...$submissionTimes, time()];
       $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     } catch (Throwable $exception) {
-      error_log($exception->getMessage());
+      error_log('Intake form: ' . $exception->getMessage());
       $formError = 'Versturen is helaas niet gelukt. Mail ons rechtstreeks via info@turinguard.nl.';
     }
   }

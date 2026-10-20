@@ -3,33 +3,70 @@ declare(strict_types=1);
 
 function smtp_send(array $config, string $replyTo, string $subject, string $body): void
 {
-    $host = $config['smtp_host'];
-    $port = (int) $config['smtp_port'];
-    $socket = fsockopen($host, $port, $errorCode, $errorMessage, 15);
-    if ($socket === false) {
-        throw new RuntimeException("SMTP connection failed: $errorMessage ($errorCode)");
+    foreach (['smtp_host', 'smtp_port', 'smtp_username', 'smtp_password', 'smtp_from', 'recipient'] as $key) {
+        if (!isset($config[$key]) || $config[$key] === '') {
+            throw new RuntimeException("SMTP configuration is missing: $key");
+        }
     }
 
+    if (!filter_var($replyTo, FILTER_VALIDATE_EMAIL) || !filter_var($config['smtp_from'], FILTER_VALIDATE_EMAIL) || !filter_var($config['recipient'], FILTER_VALIDATE_EMAIL)) {
+        throw new RuntimeException('SMTP configuration contains an invalid email address.');
+    }
+
+    $host = (string) $config['smtp_host'];
+    $ehloHost = (string) ($config['smtp_ehlo'] ?? 'localhost');
+    $port = (int) $config['smtp_port'];
+    if (!preg_match('/^[A-Za-z0-9.-]+$/', $ehloHost)) {
+        throw new RuntimeException('SMTP EHLO hostname is invalid.');
+    }
+    if (!in_array($port, [465, 587], true)) {
+        throw new RuntimeException('SMTP port must be 465 or 587.');
+    }
+
+    $transport = $port === 465 ? "ssl://$host" : "tcp://$host";
+    $context = stream_context_create([
+        'ssl' => [
+            'verify_peer' => true,
+            'verify_peer_name' => true,
+            'allow_self_signed' => false,
+            'peer_name' => $host,
+        ],
+    ]);
+    $socket = stream_socket_client($transport . ":$port", $errorCode, $errorMessage, 15, STREAM_CLIENT_CONNECT, $context);
+    if ($socket === false) {
+        throw new RuntimeException("SMTP connection failed to $host:$port: $errorMessage ($errorCode)");
+    }
+
+    $stage = 'greeting';
     try {
         smtp_expect($socket, 220);
-        smtp_command($socket, "EHLO turinguard.nl", 250);
-        smtp_command($socket, "STARTTLS", 220);
-        if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
-            throw new RuntimeException('Could not enable SMTP TLS.');
+        $stage = 'EHLO';
+        smtp_command($socket, "EHLO $ehloHost", 250);
+        if ($port !== 465) {
+            $stage = 'STARTTLS';
+            smtp_command($socket, "STARTTLS", 220);
+            if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+                throw new RuntimeException('Could not enable SMTP TLS.');
+            }
+            $stage = 'EHLO after TLS';
+            smtp_command($socket, "EHLO $ehloHost", 250);
         }
-        smtp_command($socket, "EHLO turinguard.nl", 250);
+        $stage = 'authentication';
         smtp_command($socket, "AUTH LOGIN", 334);
         smtp_command($socket, base64_encode($config['smtp_username']), 334);
         smtp_command($socket, base64_encode($config['smtp_password']), 235);
+        $stage = 'sender and recipient';
         smtp_command($socket, "MAIL FROM:<{$config['smtp_from']}>", 250);
         smtp_command($socket, "RCPT TO:<{$config['recipient']}>", 250);
+        $stage = 'message delivery';
         smtp_command($socket, 'DATA', 354);
 
         $headers = [
             'From: Turinguard website <' . $config['smtp_from'] . '>',
             'Reply-To: ' . $replyTo,
             'To: ' . $config['recipient'],
-            'Subject: ' . mb_encode_mimeheader($subject, 'UTF-8'),
+            'Message-ID: <' . bin2hex(random_bytes(16)) . '@' . $host . '>',
+            'Subject: ' . (function_exists('mb_encode_mimeheader') ? mb_encode_mimeheader($subject, 'UTF-8') : $subject),
             'MIME-Version: 1.0',
             'Content-Type: text/plain; charset=UTF-8',
         ];
@@ -37,6 +74,8 @@ function smtp_send(array $config, string $replyTo, string $subject, string $body
         fwrite($socket, $message . "\r\n");
         smtp_expect($socket, 250);
         smtp_command($socket, 'QUIT', 221);
+    } catch (Throwable $exception) {
+        throw new RuntimeException("SMTP $stage failed: " . $exception->getMessage(), 0, $exception);
     } finally {
         fclose($socket);
     }
